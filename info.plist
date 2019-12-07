@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>tv.ponpoko.alfredworkflow.sart-paymo-timer</string>
+	<string>tv.ponpoko.alfredworkflow.start-paymo-timer</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
@@ -187,7 +187,17 @@ create it.</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>This workflow displays all tasks in 'paymo' and starts a timer for the selected task.</string>
+	<string>This workflow displays all tasks in 'paymo' and starts a timer for the selected task.
+
+At first,
+You have to get API Key following URL:
+https://app.paymoapp.com/#Paymo.module.myaccount/api-keys
+
+and create JSON file and place your home directory named as '.paymoapi.secret.json'
+
+```
+{"secret" : "&lt;&lt;YOUR API KEY&gt;&gt;"}
+```</string>
 	<key>uidata</key>
 	<dict>
 		<key>61A54B4F-2755-4B5C-87A5-772AE1578831</key>
