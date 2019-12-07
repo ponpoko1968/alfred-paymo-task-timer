@@ -50,7 +50,7 @@
 	<key>createdby</key>
 	<string>Shuji OCHI</string>
 	<key>description</key>
-	<string>Learn how to connect a keyword to different actions and outputs</string>
+	<string>select  your all paymo task, start timer.</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -187,9 +187,7 @@ create it.</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>Keywords are one of Alfred's most commonly used and most useful ways of launching actions. Set a keyword and connect it to the action(s) you want to perform.
-
-Type your keyword into Alfred, followed by your input text if needed, and you'll be on your way to boosting your productivity!</string>
+	<string>This workflow displays all tasks in 'paymo' and starts a timer for the selected task.</string>
 	<key>uidata</key>
 	<dict>
 		<key>61A54B4F-2755-4B5C-87A5-772AE1578831</key>
