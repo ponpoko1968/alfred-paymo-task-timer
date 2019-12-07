@@ -10,3 +10,6 @@ and create JSON file and place your home directory named as '.paymoapi.secret.js
 ```
 {"secret" : "<<YOUR API KEY>>"}
 ```
+
+
+[Download](https://github.com/ponpoko1968/alfred-paymo-task-timer/files/3934763/Start.Paymo.Timer.zip)
