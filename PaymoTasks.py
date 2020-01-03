@@ -14,6 +14,7 @@ BASE_URL='https://app.paymoapp.com/api'
 class PaymoTasks:
     homePath = os.path.expanduser('~')
     filePath = homePath + "/.paymoapi.secret.json"
+    project_dict = dict()
     def api_key(self):
         try:
             with open(self.filePath) as secret:
@@ -22,6 +23,24 @@ class PaymoTasks:
         except FileNotFoundError:
             return (None, 'error: ~/.paymoapi.secret.json not found.\ncreate it.')
 
+
+    def getProjects(self):
+        api_key ,_ = self.api_key()
+        if not api_key:
+            return []
+        url = BASE_URL + '/projects'
+        basic_user_and_pasword = base64.b64encode('{}:{}'.format(api_key, 'X').encode('utf-8'))
+        request = urllib.request.Request(url,
+                                         headers={"Authorization": "Basic " + basic_user_and_pasword.decode('utf-8')})
+        with urllib.request.urlopen(request) as f:
+            try:
+                projects = json.loads(f.read())['projects']
+                for proj in projects:
+                    self.project_dict[proj['id']] = proj['name']
+            except ValueError:
+                return []
+            else:
+                return []
 
     def getTasks(self):
         api_key ,_ = self.api_key()
@@ -40,7 +59,11 @@ class PaymoTasks:
                 return []
 
     def outputTasks(self):
-        func = lambda i: {'title': i['name'], 'subtitle' : i['code'], 'arg':i['id']}
+        self.getProjects()
+        func = lambda i: {'title': i['name'],
+                          'subtitle' : self.project_dict[i['project_id']],
+                          'match': '{} {} {}'.format(i['name'], i['code'], self.project_dict[i['project_id']]),
+                          'arg':i['id']}
         print(json.dumps({'items':[func(task) for task in self.getTasks()]}))
 
     def me(self):
@@ -94,7 +117,10 @@ if __name__ == '__main__':
     task = PaymoTasks()
     (_, error) = task.api_key()
     if error:
-        print( json.dumps({"items": [{'title': 'ERROR', 'subtitle' : error, 'arg':error}]}))
+        print( json.dumps({"items": [{'title': 'ERROR',
+                                      'subtitle' : error,
+                                      'arg':error
+        }]}))
         sys.exit(0)
 
     if args.start:
