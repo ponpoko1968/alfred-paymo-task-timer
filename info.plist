@@ -8,11 +8,11 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
-		<key>6F713640-11E9-48DB-8352-454B40CB3D4C</key>
+		<key>15AF1F46-4F7A-47E1-ADCE-C7A6CC275C6A</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>CBC356F0-D424-4B6A-9512-82A8E6554D3D</string>
+				<string>AB1EE967-C8C1-4C04-B314-E97B8C9F8BD2</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -21,23 +21,76 @@
 				<false/>
 			</dict>
 		</array>
-		<key>CBC356F0-D424-4B6A-9512-82A8E6554D3D</key>
+		<key>2209857B-B20B-4F77-99B7-A0F2E8B815DB</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>61A54B4F-2755-4B5C-87A5-772AE1578831</string>
+				<string>381A8970-DA2E-41A5-A3AC-872BEB2BF8BB</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
-				<key>sourceoutputuid</key>
-				<string>DB00842B-BC42-43C5-83B4-51652EE5C824</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+		</array>
+		<key>381A8970-DA2E-41A5-A3AC-872BEB2BF8BB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7900839E-1300-4A9A-AB21-4E2DBD9887D0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>6F713640-11E9-48DB-8352-454B40CB3D4C</key>
+		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>BBE90F5A-F710-4C66-9A82-EE0400FA1F34</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>7900839E-1300-4A9A-AB21-4E2DBD9887D0</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FC79BCA3-61BF-4871-A160-AD72C2BECC75</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>AB1EE967-C8C1-4C04-B314-E97B8C9F8BD2</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F84D5D9C-4E96-4582-90BE-96D0747B3789</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F84D5D9C-4E96-4582-90BE-96D0747B3789</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2209857B-B20B-4F77-99B7-A0F2E8B815DB</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -54,35 +107,9 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Start Paymo Timer</string>
+	<string>Paymo for alfred</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alignment</key>
-				<integer>0</integer>
-				<key>backgroundcolor</key>
-				<string></string>
-				<key>fadespeed</key>
-				<integer>0</integer>
-				<key>fillmode</key>
-				<integer>2</integer>
-				<key>font</key>
-				<string></string>
-				<key>largetypetext</key>
-				<string>~/.paymoapi.secret.json is missing
-create it.</string>
-				<key>textcolor</key>
-				<string></string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.largetype</string>
-			<key>uid</key>
-			<string>61A54B4F-2755-4B5C-87A5-772AE1578831</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -135,36 +162,6 @@ create it.</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>conditions</key>
-				<array>
-					<dict>
-						<key>inputstring</key>
-						<string></string>
-						<key>matchcasesensitive</key>
-						<false/>
-						<key>matchmode</key>
-						<integer>4</integer>
-						<key>matchstring</key>
-						<string>^error</string>
-						<key>outputlabel</key>
-						<string>set ~/.paymoapi.secret.json</string>
-						<key>uid</key>
-						<string>DB00842B-BC42-43C5-83B4-51652EE5C824</string>
-					</dict>
-				</array>
-				<key>elselabel</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.conditional</string>
-			<key>uid</key>
-			<string>CBC356F0-D424-4B6A-9512-82A8E6554D3D</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -185,6 +182,204 @@ create it.</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>subtext</key>
+				<string>新規作成するタスク名を入れてくださいってば</string>
+				<key>text</key>
+				<string>新規作成するタスク名を入れてください</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>7900839E-1300-4A9A-AB21-4E2DBD9887D0</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>echo --project-id $project_id  --task-name {query} &gt;&amp;2 
+/usr/bin/python3 PaymoTasks.py --project-id $project_id  --task-name {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>FC79BCA3-61BF-4871-A160-AD72C2BECC75</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/usr/bin/python3 PaymoTasks.py --project-list  --client-id {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>AB1EE967-C8C1-4C04-B314-E97B8C9F8BD2</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>pmc</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>/usr/bin/python3 PaymoTasks.py --client-list</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>15AF1F46-4F7A-47E1-ADCE-C7A6CC275C6A</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>echo $qq</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>プロジェクト名</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>2209857B-B20B-4F77-99B7-A0F2E8B815DB</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>variables</key>
+				<dict>
+					<key>project_id</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>381A8970-DA2E-41A5-A3AC-872BEB2BF8BB</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>variables</key>
+				<dict>
+					<key>qq</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>F84D5D9C-4E96-4582-90BE-96D0747B3789</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>This workflow displays all tasks in 'paymo' and starts a timer for the selected task.
@@ -200,12 +395,28 @@ and create JSON file and place your home directory named as '.paymoapi.secret.js
 ```</string>
 	<key>uidata</key>
 	<dict>
-		<key>61A54B4F-2755-4B5C-87A5-772AE1578831</key>
+		<key>15AF1F46-4F7A-47E1-ADCE-C7A6CC275C6A</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>2</integer>
+			<key>xpos</key>
+			<integer>80</integer>
+			<key>ypos</key>
+			<integer>340</integer>
+		</dict>
+		<key>2209857B-B20B-4F77-99B7-A0F2E8B815DB</key>
 		<dict>
 			<key>xpos</key>
-			<integer>710</integer>
+			<integer>530</integer>
 			<key>ypos</key>
-			<integer>130</integer>
+			<integer>340</integer>
+		</dict>
+		<key>381A8970-DA2E-41A5-A3AC-872BEB2BF8BB</key>
+		<dict>
+			<key>xpos</key>
+			<integer>705</integer>
+			<key>ypos</key>
+			<integer>365</integer>
 		</dict>
 		<key>6F713640-11E9-48DB-8352-454B40CB3D4C</key>
 		<dict>
@@ -214,23 +425,54 @@ and create JSON file and place your home directory named as '.paymoapi.secret.js
 			<key>ypos</key>
 			<integer>140</integer>
 		</dict>
+		<key>7900839E-1300-4A9A-AB21-4E2DBD9887D0</key>
+		<dict>
+			<key>xpos</key>
+			<integer>790</integer>
+			<key>ypos</key>
+			<integer>335</integer>
+		</dict>
+		<key>AB1EE967-C8C1-4C04-B314-E97B8C9F8BD2</key>
+		<dict>
+			<key>xpos</key>
+			<integer>270</integer>
+			<key>ypos</key>
+			<integer>340</integer>
+		</dict>
 		<key>BBE90F5A-F710-4C66-9A82-EE0400FA1F34</key>
 		<dict>
 			<key>xpos</key>
-			<integer>710</integer>
+			<integer>425</integer>
 			<key>ypos</key>
-			<integer>270</integer>
+			<integer>140</integer>
 		</dict>
-		<key>CBC356F0-D424-4B6A-9512-82A8E6554D3D</key>
+		<key>F84D5D9C-4E96-4582-90BE-96D0747B3789</key>
 		<dict>
 			<key>xpos</key>
-			<integer>285</integer>
+			<integer>440</integer>
 			<key>ypos</key>
-			<integer>160</integer>
+			<integer>370</integer>
+		</dict>
+		<key>FC79BCA3-61BF-4871-A160-AD72C2BECC75</key>
+		<dict>
+			<key>xpos</key>
+			<integer>975</integer>
+			<key>ypos</key>
+			<integer>335</integer>
 		</dict>
 	</dict>
+	<key>variables</key>
+	<dict>
+		<key>paymo_api_key</key>
+		<string>0abac120961987c9bc7a4415078c435c</string>
+		<key>paymo_user_id</key>
+		<string>43775</string>
+	</dict>
 	<key>variablesdontexport</key>
-	<array/>
+	<array>
+		<string>paymo_api_key</string>
+		<string>paymo_user_id</string>
+	</array>
 	<key>version</key>
 	<string>1.0</string>
 	<key>webaddress</key>
