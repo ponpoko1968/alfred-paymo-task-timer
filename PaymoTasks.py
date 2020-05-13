@@ -43,6 +43,7 @@ class PaymoTasks:
             try:
                 clients = json.loads(f.read())['clients']
                 clients = sorted(clients, key=lambda client: client['updated_on'], reverse=True)
+                print(json.dumps(clients[0],indent=4), file=sys.stderr)
                 return clients
             except ValueError:
                 return []
@@ -78,6 +79,8 @@ class PaymoTasks:
             try:
                 project_dict = {}
                 projects = json.loads(f.read())['projects']
+                print(json.dumps(projects[0],indent=4), file=sys.stderr)
+
                 for proj in projects:
                     #print(proj.keys())
                     project_dict[proj['id']] = proj
@@ -97,7 +100,7 @@ class PaymoTasks:
         api_key ,_ = self.api_key()
         if not api_key:
             return []
-        url = BASE_URL + '/tasks?where=complete=false'
+        url = BASE_URL + '/tasks?where=complete=false&include=project.name,project.client.name'
         basic_user_and_pasword = base64.b64encode('{}:{}'.format(api_key, 'X').encode('utf-8'))
         request = urllib.request.Request(url,
                                          headers={"Authorization": "Basic " + basic_user_and_pasword.decode('utf-8')})
@@ -146,12 +149,13 @@ class PaymoTasks:
         print(json.dumps( {'items': [func(proj) for proj in projects]} ))
 
     def outputTasks(self):
-        self.getProjects()
         func = lambda i: {'title': i['name'],
-                         # 'subtitle' : self.project_dict[i['project_id']]['name'],
-                          'match': '{} {} {}'.format(i['name'], i['code'], self.project_dict[i['project_id']]['name']),
+                          'subtitle' :  i['project']['client']['name'] + ' ' + i['project']['name'],
+                          'match': '{} {} {} {}'.format(i['name'], i['code'], i['project']['client']['name'],i['project']['name']),
                           'arg':i['id']}
-        print(json.dumps({'items':[func(task) for task in self.getTasks()]}))
+        tasks  = self.getTasks()
+        tasks = sorted(tasks, key=lambda s: s['created_on'], reverse=True)
+        print(json.dumps({'items':[func(task) for task in tasks]}))
 
     def me(self):
         api_key, _ = self.api_key()
