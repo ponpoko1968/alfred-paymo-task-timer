@@ -5,11 +5,7 @@ At first,
 You have to get API Key following URL:
 https://app.paymoapp.com/#Paymo.module.myaccount/api-keys
 
-and create JSON file and place your home directory named as '.paymoapi.secret.json'
-
-```
-{"secret" : "<<YOUR API KEY>>"}
-```
+and add key named as `paymo_api_key` to `workflow environment variables` at workflow settings. 
 
 
 [Download](https://github.com/ponpoko1968/alfred-paymo-task-timer/files/3934763/Start.Paymo.Timer.zip)
