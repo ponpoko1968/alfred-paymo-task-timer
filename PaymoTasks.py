@@ -41,7 +41,9 @@ class PaymoTasks:
                                          headers={"Authorization": "Basic " + basic_user_and_pasword.decode('utf-8')})
         with urllib.request.urlopen(request) as f:
             try:
-                return json.loads(f.read())['clients']
+                clients = json.loads(f.read())['clients']
+                clients = sorted(clients, key=lambda client: client['updated_on'], reverse=True)
+                return clients
             except ValueError:
                 return []
             else:
@@ -135,11 +137,13 @@ class PaymoTasks:
 
     def outputProjects(self, client_id=None):
         projects = self.getProjects(client_id)
-        func = lambda k: {'title': projects[k]['name'],
+        projects = [projects[key] for key in projects.keys()]
+        projects = sorted(projects, key=lambda project: project['updated_on'], reverse=True)
+        func = lambda proj: {'title': proj['name'],
                               'subtitle' : '',
-                              'match': projects[k]['name'],
-                              'arg':k}
-        print(json.dumps( {'items': [func(key) for key in projects.keys()]} ))
+                              'match': proj['name'],
+                              'arg':proj['id']}
+        print(json.dumps( {'items': [func(proj) for proj in projects]} ))
 
     def outputTasks(self):
         self.getProjects()
