@@ -4,8 +4,6 @@
 <dict>
 	<key>bundleid</key>
 	<string>tv.ponpoko.alfredworkflow.start-paymo-timer</string>
-	<key>category</key>
-	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
 		<key>15AF1F46-4F7A-47E1-ADCE-C7A6CC275C6A</key>
@@ -34,11 +32,37 @@
 				<false/>
 			</dict>
 		</array>
+		<key>2B9BBDDE-9464-4315-9FD8-CCF92EDB3405</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FAAD9F52-7F35-41EE-9EB2-94F109827E21</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>381A8970-DA2E-41A5-A3AC-872BEB2BF8BB</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>7900839E-1300-4A9A-AB21-4E2DBD9887D0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>4E444393-01B6-4ABE-A61A-41A4CBB07D17</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2B9BBDDE-9464-4315-9FD8-CCF92EDB3405</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -122,7 +146,7 @@
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
-				<integer>2</integer>
+				<integer>1</integer>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
@@ -150,7 +174,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
-				<false/>
+				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
@@ -190,8 +214,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>echo --project-id $project_id  --task-name {query} &gt;&amp;2 
-/usr/bin/python3 PaymoTasks.py --project-id $project_id  --task-name {query}</string>
+				<string>/usr/bin/python3 PaymoTasks.py --project-id $project_id  --task-name {query}</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -256,6 +279,53 @@
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
 				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>echo $qq</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>プロジェクト名</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>2209857B-B20B-4F77-99B7-A0F2E8B815DB</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
 				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
@@ -300,55 +370,10 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>alfredfiltersresults</key>
-				<true/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>script</key>
-				<string>echo $qq</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string></string>
-				<key>title</key>
-				<string>プロジェクト名</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>2209857B-B20B-4F77-99B7-A0F2E8B815DB</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argument</key>
 				<string></string>
+				<key>passthroughargument</key>
+				<false/>
 				<key>variables</key>
 				<dict>
 					<key>project_id</key>
@@ -367,6 +392,8 @@
 			<dict>
 				<key>argument</key>
 				<string></string>
+				<key>passthroughargument</key>
+				<false/>
 				<key>variables</key>
 				<dict>
 					<key>qq</key>
@@ -380,6 +407,79 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>pmq</string>
+				<key>subtext</key>
+				<string>新規作成するタスク名を入れてくださいってば</string>
+				<key>text</key>
+				<string>新規作成するタスク名を入れてください</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>4E444393-01B6-4ABE-A61A-41A4CBB07D17</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/usr/bin/python3 PaymoTasks.py --quick --task-name {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>FAAD9F52-7F35-41EE-9EB2-94F109827E21</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alignment</key>
+				<integer>0</integer>
+				<key>backgroundcolor</key>
+				<string></string>
+				<key>fadespeed</key>
+				<integer>0</integer>
+				<key>fillmode</key>
+				<integer>0</integer>
+				<key>font</key>
+				<string></string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>largetypetext</key>
+				<string>{query}</string>
+				<key>textcolor</key>
+				<string></string>
+				<key>wrapat</key>
+				<integer>50</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>2B9BBDDE-9464-4315-9FD8-CCF92EDB3405</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>This workflow displays all tasks in 'paymo' and starts a timer for the selected task.
@@ -388,11 +488,7 @@ At first,
 You have to get API Key following URL:
 https://app.paymoapp.com/#Paymo.module.myaccount/api-keys
 
-and create JSON file and place your home directory named as '.paymoapi.secret.json'
-
-```
-{"secret" : "&lt;&lt;YOUR API KEY&gt;&gt;"}
-```</string>
+and add key named as `paymo_api_key` to `workflow environment variables` at workflow settings.</string>
 	<key>uidata</key>
 	<dict>
 		<key>15AF1F46-4F7A-47E1-ADCE-C7A6CC275C6A</key>
@@ -411,12 +507,26 @@ and create JSON file and place your home directory named as '.paymoapi.secret.js
 			<key>ypos</key>
 			<integer>340</integer>
 		</dict>
+		<key>2B9BBDDE-9464-4315-9FD8-CCF92EDB3405</key>
+		<dict>
+			<key>xpos</key>
+			<integer>430</integer>
+			<key>ypos</key>
+			<integer>585</integer>
+		</dict>
 		<key>381A8970-DA2E-41A5-A3AC-872BEB2BF8BB</key>
 		<dict>
 			<key>xpos</key>
 			<integer>705</integer>
 			<key>ypos</key>
 			<integer>365</integer>
+		</dict>
+		<key>4E444393-01B6-4ABE-A61A-41A4CBB07D17</key>
+		<dict>
+			<key>xpos</key>
+			<integer>200</integer>
+			<key>ypos</key>
+			<integer>500</integer>
 		</dict>
 		<key>6F713640-11E9-48DB-8352-454B40CB3D4C</key>
 		<dict>
@@ -453,6 +563,13 @@ and create JSON file and place your home directory named as '.paymoapi.secret.js
 			<key>ypos</key>
 			<integer>370</integer>
 		</dict>
+		<key>FAAD9F52-7F35-41EE-9EB2-94F109827E21</key>
+		<dict>
+			<key>xpos</key>
+			<integer>655</integer>
+			<key>ypos</key>
+			<integer>500</integer>
+		</dict>
 		<key>FC79BCA3-61BF-4871-A160-AD72C2BECC75</key>
 		<dict>
 			<key>xpos</key>
@@ -464,18 +581,18 @@ and create JSON file and place your home directory named as '.paymoapi.secret.js
 	<key>variables</key>
 	<dict>
 		<key>paymo_api_key</key>
-		<string>0abac120961987c9bc7a4415078c435c</string>
-		<key>paymo_user_id</key>
-		<string>43775</string>
+		<string>23d09f236aa0d9be962d3d9b3dca01c5</string>
+		<key>paymo_inbox_id</key>
+		<string>2168186</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
+		<string>paymo_inbox_id</string>
 		<string>paymo_api_key</string>
-		<string>paymo_user_id</string>
 	</array>
 	<key>version</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>webaddress</key>
-	<string>https://www.alfredapp.com</string>
+	<string>https://github.com/ponpoko1968/alfred-paymo-task-timer</string>
 </dict>
 </plist>

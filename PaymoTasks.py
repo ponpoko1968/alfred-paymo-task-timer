@@ -13,24 +13,22 @@ BASE_URL='https://app.paymoapp.com/api'
 
 class PaymoTasks:
     homePath = os.path.expanduser('~')
-    filePath = homePath + "/.paymoapi.secret.json"
     project_dict = dict()
-
-    def get_user_id(self):
-        return os.getenv('paymo_user_id')
 
     def api_key(self):
         key = os.getenv('paymo_api_key')
         if key:
             return (key, None)
         else:
-            return (None, 'error: ~/.paymoapi.secret.json not found.\ncreate it.')
-        # try:
-        #     with open(self.filePath) as secret:
-        #         data = json.load(secret)
-        #         return  (data["secret"], None) if 'secret' in data else (None, "error: missing key 'secret'")
-        # except FileNotFoundError:
-        #     return (None, 'error: ~/.paymoapi.secret.json not found.\ncreate it.')
+            return (None, 'error: ${paymo_api_key} not set.')
+
+    def inbox_id(self):
+        key = os.getenv('paymo_inbox_id')
+        if key:
+            return (key, None)
+        else:
+            return (None, 'error: ${paymo_inbox_id} not set.')
+
     def getClients(self):
         api_key ,_ = self.api_key()
         if not api_key:
@@ -120,9 +118,9 @@ class PaymoTasks:
         basic_user_and_pasword = base64.b64encode('{}:{}'.format(api_key, 'X').encode('utf-8'))
         json_data = json.dumps({'project_id': project_id,
             'name': task_name }).encode('utf-8')
-        print(json_data, file=sys.stderr)
+        print("create task: json={}".format(json_data), file=sys.stderr)
         request = urllib.request.Request(url,
-                                         data=json_data, 
+                                         data=json_data,
                                          method='POST',
                                          headers={
                                              "Content-Type" : "application/json",
@@ -131,12 +129,16 @@ class PaymoTasks:
             with urllib.request.urlopen(request) as response:
                 data = response.read().decode("utf-8")
                 resp = json.loads(data)
-                print(resp, file=sys.stderr)
+                print("resp:{}".format(resp), file=sys.stderr)
                 if start and 'tasks' in resp and len(resp['tasks']) > 0:
                     self.startTask(int(resp['tasks'][0]['id']))
         except urllib.error.HTTPError as identifier:
+            print("error:{}".format(identifier), file=sys.stderr)
             print(identifier)
             print(identifier.read())
+        except Error as e:
+            print("error:{}".format(e), file=sys.stderr)
+
 
     def outputProjects(self, client_id=None):
         projects = self.getProjects(client_id)
@@ -155,7 +157,7 @@ class PaymoTasks:
                           'arg':i['id']}
         tasks  = self.getTasks()
         tasks = sorted(tasks, key=lambda s: s['created_on'], reverse=True)
-        print(json.dumps({'items':[func(task) for task in tasks]}))
+        print(json.dumps({'items':[func(task) for task in tasks]}, indent=True))
 
     def me(self):
         api_key, _ = self.api_key()
@@ -187,7 +189,7 @@ class PaymoTasks:
         now = datetime.utcnow().isoformat()
         obj = {"task_id" : task_id, "user_id" : user_id, "description":"start from alred workflow", "start_time":now}
         json_data = json.dumps(obj).encode("utf-8")
-        print(json_data, file=sys.stderr)
+        print("json={}".format(json_data), file=sys.stderr)
         request = urllib.request.Request(url,
                                          headers={"Authorization": "Basic " + basic_user_and_pasword.decode('utf-8'),
                                                   'Content-Type': 'application/json'},
@@ -195,7 +197,7 @@ class PaymoTasks:
                                          method='POST')
         try:
             with urllib.request.urlopen(request) as response:
-                print(response, file=sys.stderr)
+                print("received: {}".format( response), file=sys.stderr)
                 response_body = response.read().decode("utf-8")
         except urllib.error.HTTPError as e:
                 print(e.msg, file=sys.stderr)
@@ -204,6 +206,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--list', action='store_true')
     parser.add_argument('--start', nargs=1)
+    parser.add_argument('--quick', action='store_true')
     parser.add_argument('--client-id', nargs=1)
     parser.add_argument('--project-list', action='store_true')
     parser.add_argument('--client-list', action='store_true')
@@ -219,19 +222,21 @@ if __name__ == '__main__':
                                       'arg':error
         }]}))
         sys.exit(0)
-
+    paymo = PaymoTasks()
     if args.start:
         print(int(args.start[0]), file=sys.stderr)
-        PaymoTasks().startTask(int(args.start[0]))
+        paymo.startTask(int(args.start[0]))
         sys.exit(0)
     elif args.project_list:
         if args.client_id and len(args.client_id)==1:
-            PaymoTasks().outputProjects(client_id=args.client_id[0])
+            paymo.outputProjects(client_id=args.client_id[0])
         else:
-            PaymoTasks().outputProjects()
+            paymo.outputProjects()
     elif args.client_list:
-        PaymoTasks().outputClients(PaymoTasks().getClients())
+        paymo.outputClients(paymo.getClients())
     elif args.task_name and args.project_id:
-        PaymoTasks().createTask(args.project_id[0], args.task_name[0] )
+        paymo.createTask(args.project_id[0], args.task_name[0] )
+    elif args.quick and args.task_name:
+        paymo.createTask(paymo.inbox_id()[0], args.task_name[0], start=False )
     else:
         PaymoTasks().outputTasks()
