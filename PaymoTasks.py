@@ -110,14 +110,15 @@ class PaymoTasks:
             else:
                 return []
 
-    def createTask(self, project_id, task_name, start=True):
+    def createTask(self, project_id, task_name, start=True, priority=50):
         api_key ,_ = self.api_key()
         if not api_key:
             return []
         url = BASE_URL + '/tasks'
         basic_user_and_pasword = base64.b64encode('{}:{}'.format(api_key, 'X').encode('utf-8'))
         json_data = json.dumps({'project_id': project_id,
-            'name': task_name }).encode('utf-8')
+                                'priority': priority,
+                                'name': task_name }).encode('utf-8')
         print("create task: json={}".format(json_data), file=sys.stderr)
         request = urllib.request.Request(url,
                                          data=json_data,
@@ -237,6 +238,6 @@ if __name__ == '__main__':
     elif args.task_name and args.project_id:
         paymo.createTask(args.project_id[0], args.task_name[0] )
     elif args.quick and args.task_name:
-        paymo.createTask(paymo.inbox_id()[0], args.task_name[0], start=False )
+        paymo.createTask(paymo.inbox_id()[0], args.task_name[0], start=False, priority=75 )
     else:
         PaymoTasks().outputTasks()
